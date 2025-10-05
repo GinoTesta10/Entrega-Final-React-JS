@@ -1,0 +1,12 @@
+.carrito {
+  display: flex;
+  gap: 5px;
+  font-size: 2rem;
+  color: white;
+}
+.carrito:hover {
+  cursor: pointer;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: ghostwhite;
+}
