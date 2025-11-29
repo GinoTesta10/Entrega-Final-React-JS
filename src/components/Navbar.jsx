@@ -22,7 +22,6 @@ const Navbar = () => {
           color: "#1B1A17",
           textDecoration: "none",
           fontSize: "24px",
-          fontWeight: "bold",
           fontFamily: "BBH Sans Bartle",
           fontWeight: 400,
         }}
