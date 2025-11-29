@@ -1,22 +1,22 @@
-import Items from "./pages/Items";
-import Navbar from "./components/navbar";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Register from "./pages/Register";
-import NotFound from "./pages/NotFound";
-import ProductsDetails from "./components/ProductsDetails";
+import { CartProvider, CartContext } from "./components/CartContext";
+import Navbar from "./components/Navbar";
+import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import Cart from "./components/Cart";
+
 function App() {
   return (
-    <>
+    <CartProvider>
       <Navbar />
-      <Routes>
-        <Route path="/products" element={<Items inicio="Productos" />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/products/:id" element={<ProductsDetails />} />
-      </Routes>
-    </>
+      <div style={{ padding: 20 }}>
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </div>
+    </CartProvider>
   );
 }
 
