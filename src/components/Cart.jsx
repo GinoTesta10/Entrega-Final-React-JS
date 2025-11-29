@@ -23,6 +23,53 @@ const Cart = () => {
       </h2>
     );
 
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      gap: "10px",
+    }}
+  >
+    {cart.map((prod) => (
+      <div
+        key={prod.id}
+        style={{
+          margin: "10px 0",
+          backgroundColor: "#F0A500",
+          padding: "15px",
+          borderRadius: "20px",
+          width: "auto",
+          height: "auto",
+        }}
+      >
+        <h2>{prod.name}</h2>
+        <img
+          style={{ width: "auto", height: "200px" }}
+          src={prod.img}
+          alt={prod.name}
+        />
+        <p style={{ fontSize: 20 }}>Cantidad: {prod.quantity}</p>
+        <p style={{ fontSize: 20 }}>Precio unidad: ${prod.price}</p>
+        <p style={{ fontSize: 20 }}>Subtotal: ${prod.price * prod.quantity}</p>
+
+        <button
+          style={{
+            marginBottom: "20px",
+            padding: "10px",
+            borderRadius: "5px",
+            color: "#F0A500",
+            backgroundColor: "#1B1A17",
+            cursor: "pointer",
+          }}
+          onClick={() => removeFromCart(prod.id)}
+        >
+          Eliminar
+        </button>
+      </div>
+    ))}
+  </div>;
+
   return (
     <div>
       <h1
@@ -87,52 +134,4 @@ const Cart = () => {
     </div>
   );
 };
-
-<div
-  style={{
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: "10px",
-  }}
->
-  {cart.map((prod) => (
-    <div
-      key={prod.id}
-      style={{
-        margin: "10px 0",
-        backgroundColor: "#F0A500",
-        padding: "15px",
-        borderRadius: "20px",
-        width: "auto",
-        height: "auto",
-      }}
-    >
-      <h2>{prod.name}</h2>
-      <img
-        style={{ width: "auto", height: "200px" }}
-        src={prod.img}
-        alt={prod.name}
-      />
-      <p style={{ fontSize: 20 }}>Cantidad: {prod.quantity}</p>
-      <p style={{ fontSize: 20 }}>Precio unidad: ${prod.price}</p>
-      <p style={{ fontSize: 20 }}>Subtotal: ${prod.price * prod.quantity}</p>
-
-      <button
-        style={{
-          marginBottom: "20px",
-          padding: "10px",
-          borderRadius: "5px",
-          color: "#F0A500",
-          backgroundColor: "#1B1A17",
-          cursor: "pointer",
-        }}
-        onClick={() => removeFromCart(prod.id)}
-      >
-        Eliminar
-      </button>
-    </div>
-  ))}
-</div>;
-
 export default Cart;
